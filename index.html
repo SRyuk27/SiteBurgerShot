@@ -1,0 +1,2762 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Burger Shot — Règlement Interne & Menu</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,600;1,700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* =========================================================
+       VARIABLES
+    ========================================================= */
+
+    :root {
+      --pink: #e21587;
+      --pink-light: #ff45a8;
+      --pink-dark: #a90d63;
+
+      --gold: #e2972e;
+      --gold-light: #ffc15a;
+
+      --blue: #172d63;
+      --blue-light: #29498e;
+
+      --dark: #060a18;
+      --dark-2: #0b1126;
+      --dark-3: #101a38;
+
+      --white: #ffffff;
+      --text-light: #e8ebf5;
+      --text-muted: #9da8c2;
+
+      --glass: rgba(13, 24, 55, 0.78);
+      --glass-light: rgba(255, 255, 255, 0.08);
+
+      --border: rgba(255, 255, 255, 0.10);
+      --line: rgba(255, 255, 255, 0.08);
+
+      --shadow:
+        0 15px 50px rgba(0, 0, 0, 0.35);
+
+      --pink-glow:
+        0 0 25px rgba(226, 21, 135, 0.30);
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    /* =========================================================
+       BODY + GALAXIE
+    ========================================================= */
+
+    body {
+      font-family: "Open Sans", sans-serif;
+
+      background:
+        radial-gradient(
+          circle at 15% 15%,
+          rgba(226, 21, 135, 0.18),
+          transparent 25%
+        ),
+
+        radial-gradient(
+          circle at 85% 20%,
+          rgba(61, 111, 255, 0.18),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 50% 90%,
+          rgba(160, 70, 255, 0.16),
+          transparent 35%
+        ),
+
+        url("galaxie.jpg")
+        center center /
+        cover fixed
+        no-repeat,
+
+        var(--dark);
+
+      color: var(--white);
+
+      padding-left: 235px;
+
+      min-height: 100vh;
+
+      overflow-x: hidden;
+    }
+
+
+    /* =========================================================
+       ÉTOILES
+    ========================================================= */
+
+    body::before {
+      content: "";
+
+      position: fixed;
+
+      inset: 0;
+
+      background-image:
+
+        radial-gradient(
+          circle,
+          rgba(255,255,255,0.90) 1px,
+          transparent 1.5px
+        ),
+
+        radial-gradient(
+          circle,
+          rgba(255,255,255,0.55) 1px,
+          transparent 1.5px
+        ),
+
+        radial-gradient(
+          circle,
+          rgba(255,255,255,0.35) 1px,
+          transparent 1.5px
+        );
+
+      background-size:
+        140px 140px,
+        210px 210px,
+        280px 280px;
+
+      background-position:
+        20px 40px,
+        90px 120px,
+        160px 70px;
+
+      opacity: 0.42;
+
+      pointer-events: none;
+
+      z-index: -2;
+    }
+
+
+    /* =========================================================
+       LUEUR D'AMBIANCE
+    ========================================================= */
+
+    body::after {
+      content: "";
+
+      position: fixed;
+
+      width: 500px;
+      height: 500px;
+
+      left: 50%;
+      top: 40%;
+
+      transform: translate(-50%, -50%);
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(226,21,135,0.08),
+          transparent 70%
+        );
+
+      filter: blur(30px);
+
+      pointer-events: none;
+
+      z-index: -1;
+    }
+
+
+    /* =========================================================
+       SIDEBAR
+    ========================================================= */
+
+    aside {
+      position: fixed;
+
+      left: 15px;
+      top: 15px;
+      bottom: 15px;
+
+      width: 205px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(9,18,43,0.94),
+          rgba(8,13,31,0.88)
+        );
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      border:
+        1px solid rgba(255,255,255,0.10);
+
+      border-radius: 22px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      z-index: 1000;
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.45),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+
+      overflow: hidden;
+    }
+
+
+    /* Barre rose sur le côté */
+
+    aside::before {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      top: 0;
+      bottom: 0;
+
+      width: 4px;
+
+      background:
+        linear-gradient(
+          180deg,
+          var(--pink),
+          var(--pink-light),
+          var(--gold)
+        );
+
+      box-shadow:
+        0 0 20px rgba(226,21,135,0.7);
+    }
+
+
+    .side-logo {
+      width: 105px;
+      height: 105px;
+
+      object-fit: contain;
+
+      margin:
+        25px auto 15px;
+
+      filter:
+        drop-shadow(
+          0 8px 12px rgba(0,0,0,0.4)
+        )
+
+        drop-shadow(
+          0 0 25px rgba(226,21,135,0.35)
+        );
+
+      transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+    }
+
+
+    .side-logo:hover {
+      transform:
+        scale(1.08)
+        rotate(-2deg);
+
+      filter:
+        drop-shadow(
+          0 10px 15px rgba(0,0,0,0.45)
+        )
+
+        drop-shadow(
+          0 0 35px rgba(226,21,135,0.55)
+        );
+    }
+
+
+    /* Petit séparateur */
+
+    aside::after {
+      content: "";
+
+      width: 70%;
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          rgba(226,21,135,0.6),
+          transparent
+        );
+
+      margin-bottom: 18px;
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+    ========================================================= */
+
+    nav {
+      width: 100%;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 7px;
+
+      padding:
+        0 13px;
+    }
+
+
+    nav a {
+      position: relative;
+
+      color:
+        rgba(255,255,255,0.72);
+
+      text-decoration: none;
+
+      padding:
+        13px 12px;
+
+      border-radius: 11px;
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 12px;
+
+      font-weight: 700;
+
+      letter-spacing: 0.2px;
+
+      transition:
+        all 0.25s ease;
+
+      cursor: pointer;
+
+      text-align: center;
+
+      border:
+        1px solid transparent;
+    }
+
+
+    nav a:hover {
+      color: white;
+
+      background:
+        rgba(226,21,135,0.10);
+
+      border-color:
+        rgba(226,21,135,0.20);
+
+      transform:
+        translateX(3px);
+    }
+
+
+    nav a.active {
+      color: white;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(226,21,135,0.95),
+          rgba(169,13,99,0.95)
+        );
+
+      border-color:
+        rgba(255,255,255,0.12);
+
+      box-shadow:
+        0 7px 25px rgba(226,21,135,0.30),
+        inset 0 1px 0 rgba(255,255,255,0.18);
+    }
+
+
+    nav a.active::before {
+      content: "";
+
+      position: absolute;
+
+      left: -13px;
+
+      top: 50%;
+
+      transform:
+        translateY(-50%);
+
+      width: 4px;
+
+      height: 25px;
+
+      border-radius:
+        0 5px 5px 0;
+
+      background:
+        var(--gold);
+
+      box-shadow:
+        0 0 15px rgba(226,151,46,0.8);
+    }
+
+
+    .side-bottom {
+      margin-top: auto;
+
+      padding:
+        20px 10px;
+
+      color:
+        rgba(255,255,255,0.35);
+
+      font-size: 9px;
+
+      text-align: center;
+
+      line-height: 1.6;
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 510px;
+
+      position: relative;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(4,8,20,0.84),
+          rgba(12,24,57,0.67)
+        ),
+
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(226,21,135,0.25),
+          transparent 30%
+        ),
+
+        radial-gradient(
+          circle at 80% 30%,
+          rgba(226,151,46,0.15),
+          transparent 30%
+        ),
+
+        url("galaxie.jpg")
+        center /
+        cover fixed
+        no-repeat;
+
+      color: white;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      text-align: center;
+
+      overflow: hidden;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      box-shadow:
+        0 15px 50px rgba(0,0,0,0.35);
+    }
+
+
+    /* Halo */
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 650px;
+      height: 650px;
+
+      border-radius: 50%;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(226,21,135,0.15),
+          transparent 65%
+        );
+
+      filter:
+        blur(10px);
+
+      pointer-events: none;
+    }
+
+
+    /* Logo fantôme */
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 700px;
+      height: 700px;
+
+      background:
+        url("logo.png")
+        center /
+        contain
+        no-repeat;
+
+      opacity: 0.025;
+
+      right: -220px;
+      bottom: -300px;
+
+      transform:
+        rotate(-8deg);
+    }
+
+
+    .hero-content {
+      position: relative;
+
+      z-index: 2;
+
+      max-width: 850px;
+
+      padding:
+        50px 20px;
+    }
+
+
+    .hero-logo {
+      width: 500px;
+
+      max-width: 85%;
+
+      height: auto;
+
+      margin-bottom: 22px;
+
+      filter:
+        drop-shadow(
+          0 12px 18px rgba(0,0,0,0.5)
+        )
+
+        drop-shadow(
+          0 0 35px rgba(226,21,135,0.30)
+        );
+
+      animation:
+        logoFloat 5s ease-in-out infinite;
+    }
+
+
+    @keyframes logoFloat {
+
+      0%,
+      100% {
+        transform:
+          translateY(0);
+      }
+
+      50% {
+        transform:
+          translateY(-7px);
+      }
+
+    }
+
+
+    .hero h1 {
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 48px;
+
+      font-weight: 900;
+
+      margin-bottom: 14px;
+
+      letter-spacing:
+        -1px;
+
+      text-shadow:
+        0 5px 20px rgba(0,0,0,0.55);
+    }
+
+
+    .hero h3 {
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 17px;
+
+      font-weight: 500;
+
+      color:
+        rgba(255,255,255,0.82);
+
+      line-height: 1.7;
+    }
+
+
+    /* =========================================================
+       MAIN
+    ========================================================= */
+
+    main {
+      min-height: 600px;
+    }
+
+
+    .tab-content {
+      display: none;
+
+      opacity: 0;
+
+      transform:
+        translateY(25px)
+        scale(0.985);
+    }
+
+
+    .tab-content.active {
+      display: block;
+
+      animation:
+        tabAppear 0.45s ease forwards;
+    }
+
+
+    @keyframes tabAppear {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(25px)
+          scale(0.985);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+
+    }
+
+
+    .wrap {
+      max-width: 1150px;
+
+      margin: 0 auto;
+
+      padding:
+        75px 30px;
+    }
+
+
+    /* =========================================================
+       TITRES
+    ========================================================= */
+
+    .section-num {
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      color:
+        var(--pink-light);
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 10px;
+    }
+
+
+    h2 {
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      color: white;
+
+      font-size: 38px;
+
+      font-weight: 900;
+
+      margin-bottom: 20px;
+
+      text-shadow:
+        0 4px 20px rgba(0,0,0,0.45);
+    }
+
+
+    h2::after {
+      content: "";
+
+      display: block;
+
+      width: 70px;
+
+      height: 4px;
+
+      margin-top: 12px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--pink),
+          var(--gold)
+        );
+
+      box-shadow:
+        0 0 15px rgba(226,21,135,0.35);
+    }
+
+
+    .lead {
+      font-size: 15px;
+
+      line-height: 1.9;
+
+      margin-bottom: 40px;
+
+      color:
+        var(--text-light);
+
+      max-width: 950px;
+    }
+
+
+    /* =========================================================
+       CARTES PRÉSENTATION
+    ========================================================= */
+
+    .presentation-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 22px;
+
+      margin-top: 35px;
+    }
+
+
+    .info-card {
+      position: relative;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.10),
+          rgba(255,255,255,0.045)
+        );
+
+      backdrop-filter:
+        blur(15px);
+
+      -webkit-backdrop-filter:
+        blur(15px);
+
+      padding: 30px;
+
+      border-radius: 18px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.10);
+
+      box-shadow:
+        var(--shadow);
+
+      overflow: hidden;
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+
+    .info-card::before {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      width: 100%;
+      height: 3px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--pink),
+          transparent
+        );
+
+      opacity: 0.8;
+    }
+
+
+    .info-card:hover {
+      transform:
+        translateY(-7px);
+
+      border-color:
+        rgba(226,21,135,0.35);
+
+      box-shadow:
+        0 20px 45px rgba(0,0,0,0.40),
+        0 0 25px rgba(226,21,135,0.08);
+    }
+
+
+    .info-card h2 {
+      font-size: 20px;
+
+      margin-bottom: 13px;
+    }
+
+
+    .info-card h2::after {
+      display: none;
+    }
+
+
+    .info-card p {
+      line-height: 1.8;
+
+      color:
+        var(--text-muted);
+
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       SLOGAN
+    ========================================================= */
+
+    .slogan {
+      position: relative;
+
+      margin-top: 35px;
+
+      padding: 32px;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(226,21,135,0.15),
+          rgba(14,28,64,0.80)
+        );
+
+      backdrop-filter:
+        blur(15px);
+
+      border:
+        1px solid
+        rgba(226,21,135,0.25);
+
+      color: white;
+
+      text-align: center;
+
+      box-shadow:
+        var(--shadow);
+
+      overflow: hidden;
+    }
+
+
+    .slogan::before {
+      content: "✦";
+
+      position: absolute;
+
+      left: 25px;
+      top: 12px;
+
+      font-size: 35px;
+
+      color:
+        rgba(226,151,46,0.5);
+    }
+
+
+    .slogan::after {
+      content: "✦";
+
+      position: absolute;
+
+      right: 25px;
+      bottom: 5px;
+
+      font-size: 35px;
+
+      color:
+        rgba(226,21,135,0.5);
+    }
+
+
+    .slogan p {
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 20px;
+
+      font-weight: 700;
+
+      line-height: 1.7;
+
+      position: relative;
+
+      z-index: 2;
+    }
+
+
+    /* =========================================================
+       RÈGLEMENT
+    ========================================================= */
+
+    .rules {
+      display: grid;
+
+      gap: 16px;
+    }
+
+
+    .rule {
+      position: relative;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.09),
+          rgba(255,255,255,0.04)
+        );
+
+      backdrop-filter:
+        blur(15px);
+
+      -webkit-backdrop-filter:
+        blur(15px);
+
+      padding:
+        25px 27px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      border-left:
+        4px solid
+        var(--pink);
+
+      border-radius:
+        0 15px 15px 0;
+
+      box-shadow:
+        0 8px 25px rgba(0,0,0,0.25);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+
+    .rule:hover {
+      transform:
+        translateX(7px);
+
+      border-left-color:
+        var(--gold);
+
+      box-shadow:
+        0 12px 35px rgba(0,0,0,0.35),
+        0 0 20px rgba(226,21,135,0.06);
+    }
+
+
+    .rule h3 {
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      color:
+        white;
+
+      font-size: 18px;
+
+      margin-bottom: 9px;
+    }
+
+
+    .rule p {
+      line-height: 1.8;
+
+      color:
+        var(--text-muted);
+
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       HIÉRARCHIE
+    ========================================================= */
+
+    .ranks {
+      display: grid;
+
+      gap: 14px;
+
+      margin-top: 30px;
+    }
+
+
+    .rank {
+      display: grid;
+
+      grid-template-columns:
+        145px 1fr;
+
+      gap: 22px;
+
+      align-items: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.09),
+          rgba(255,255,255,0.035)
+        );
+
+      backdrop-filter:
+        blur(15px);
+
+      padding: 21px;
+
+      border-radius: 15px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      box-shadow:
+        0 7px 22px rgba(0,0,0,0.22);
+
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+
+    .rank:hover {
+      transform:
+        translateX(6px);
+
+      box-shadow:
+        0 12px 30px rgba(0,0,0,0.32);
+    }
+
+
+    .rank .grade {
+      background:
+        linear-gradient(
+          135deg,
+          #24417e,
+          #162d5d
+        );
+
+      color: white;
+
+      padding:
+        10px 12px;
+
+      border-radius: 9px;
+
+      text-align: center;
+
+      font-size: 11px;
+
+      font-weight: 900;
+
+      text-transform: uppercase;
+
+      letter-spacing: 0.5px;
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
+    }
+
+
+    .rank.direction .grade {
+      background:
+        linear-gradient(
+          135deg,
+          var(--pink),
+          var(--pink-dark)
+        );
+
+      box-shadow:
+        0 5px 20px rgba(226,21,135,0.20);
+    }
+
+
+    .rank.gestion .grade {
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold),
+          #bd7416
+        );
+
+      color:
+        #10182d;
+
+      box-shadow:
+        0 5px 20px rgba(226,151,46,0.15);
+    }
+
+
+    .rank strong {
+      display: block;
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 18px;
+
+      color: white;
+
+      margin-bottom: 5px;
+    }
+
+
+    .rank span {
+      display: block;
+
+      color:
+        var(--text-muted);
+
+      line-height: 1.65;
+
+      font-size: 14px;
+    }
+
+
+    /* =========================================================
+       MENU
+    ========================================================= */
+
+    .menu-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 20px;
+
+      margin-top: 30px;
+    }
+
+
+    .menu-category {
+      position: relative;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.10),
+          rgba(255,255,255,0.04)
+        );
+
+      backdrop-filter:
+        blur(15px);
+
+      -webkit-backdrop-filter:
+        blur(15px);
+
+      border-radius: 17px;
+
+      padding: 25px;
+
+      box-shadow:
+        0 10px 30px rgba(0,0,0,0.25);
+
+      border:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      overflow: hidden;
+    }
+
+
+    .menu-category::before {
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      width: 100%;
+      height: 4px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--pink),
+          var(--gold)
+        );
+    }
+
+
+    .menu-category h3 {
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      color: white;
+
+      font-size: 21px;
+
+      margin-bottom: 18px;
+    }
+
+
+    .menu-item {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 15px;
+
+      padding:
+        14px 0;
+
+      border-bottom:
+        1px solid
+        var(--line);
+    }
+
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+
+    .menu-item strong {
+      color:
+        var(--text-light);
+
+      font-size: 14px;
+    }
+
+
+    .price {
+      color:
+        var(--gold-light);
+
+      font-weight: 900;
+
+      white-space: nowrap;
+
+      padding:
+        5px 9px;
+
+      border-radius: 7px;
+
+      background:
+        rgba(226,151,46,0.10);
+
+      border:
+        1px solid
+        rgba(226,151,46,0.15);
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      position: relative;
+
+      background:
+        rgba(5,9,22,0.94);
+
+      color: white;
+
+      padding:
+        35px 20px;
+
+      text-align: center;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.08);
+
+      box-shadow:
+        0 -15px 40px rgba(0,0,0,0.25);
+    }
+
+
+    footer::before {
+      content: "";
+
+      position: absolute;
+
+      top: -2px;
+
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      width: 100px;
+
+      height: 3px;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--pink),
+          var(--gold)
+        );
+
+      box-shadow:
+        0 0 15px rgba(226,21,135,0.5);
+    }
+
+
+    footer strong {
+      color:
+        var(--pink-light);
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 15px;
+    }
+
+
+    footer p {
+      margin-top: 8px;
+
+      font-size: 12px;
+
+      color:
+        rgba(255,255,255,0.40);
+    }
+
+
+    /* =========================================================
+       RESPONSIVE TABLETTE
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+      body {
+        padding-left: 0;
+      }
+
+
+      aside {
+        position: relative;
+
+        left: 0;
+        top: 0;
+        bottom: auto;
+
+        width: 100%;
+
+        height: auto;
+
+        margin: 0;
+
+        border-radius: 0;
+
+        border-left: none;
+
+        border-right: none;
+
+        border-top: none;
+
+        border-bottom:
+          1px solid
+          rgba(255,255,255,0.08);
+      }
+
+
+      aside::before {
+        left: 0;
+        right: 0;
+
+        width: auto;
+
+        height: 3px;
+
+        bottom: auto;
+      }
+
+
+      aside::after {
+        display: none;
+      }
+
+
+      .side-logo {
+        width: 80px;
+        height: 80px;
+
+        margin:
+          18px auto 12px;
+      }
+
+
+      nav {
+        flex-direction: row;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        padding:
+          0 12px 15px;
+      }
+
+
+      nav a {
+        font-size: 10px;
+
+        padding:
+          10px 9px;
+      }
+
+
+      nav a.active::before {
+        display: none;
+      }
+
+
+      .side-bottom {
+        display: none;
+      }
+
+
+      .hero {
+        min-height: 430px;
+      }
+
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+
+      .hero-logo {
+        width: 400px;
+      }
+
+
+      .presentation-grid,
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+
+    /* =========================================================
+       RESPONSIVE MOBILE
+    ========================================================= */
+
+    @media (max-width: 600px) {
+
+      .wrap {
+        padding:
+          50px 18px;
+      }
+
+
+      h2 {
+        font-size: 29px;
+      }
+
+
+      .hero {
+        min-height: 390px;
+      }
+
+
+      .hero h1 {
+        font-size: 29px;
+      }
+
+
+      .hero h3 {
+        font-size: 14px;
+      }
+
+
+      .hero-logo {
+        width: 330px;
+      }
+
+
+      .lead {
+        font-size: 14px;
+      }
+
+
+      .info-card,
+      .menu-category {
+        padding: 22px;
+      }
+
+
+      .rank {
+        grid-template-columns: 1fr;
+
+        gap: 13px;
+
+        padding: 18px;
+      }
+
+
+      .rank .grade {
+        max-width: 190px;
+      }
+
+
+      .slogan {
+        padding: 25px 20px;
+      }
+
+
+      .slogan p {
+        font-size: 17px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =========================================================
+       SIDEBAR
+  ========================================================= -->
+
+  <aside>
+
+    <img
+      src="logo.png"
+      class="side-logo"
+      alt="Burger Shot"
+    >
+
+    <nav>
+
+      <a
+        href="#"
+        data-tab="presentation"
+        class="active"
+      >
+        Présentation
+      </a>
+
+      <a
+        href="#"
+        data-tab="regles-civiles"
+      >
+        Règlement Interne Civil
+      </a>
+
+      <a
+        href="#"
+        data-tab="regles"
+      >
+        Règlement Employé
+      </a>
+
+      <a
+        href="#"
+        data-tab="hierarchie"
+      >
+        Hiérarchie
+      </a>
+
+      <a
+        href="#"
+        data-tab="menu"
+      >
+        Menu
+      </a>
+
+    </nav>
+
+
+  </aside>
+
+
+  <!-- =========================================================
+       HERO
+  ========================================================= -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <img
+        src="logo.png"
+        class="hero-logo"
+        alt="Burger Shot"
+      >
+
+      <h1>
+        Bienvenue au Burger Shot
+      </h1>
+
+      <h3>
+        On vous sert le burger,
+        vous apportez la bonne humeur.
+      </h3>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+
+    <!-- =====================================================
+         PRÉSENTATION
+    ===================================================== -->
+
+    <section
+      id="presentation"
+      class="tab-content active"
+    >
+
+      <div class="wrap">
+
+        <h2>
+          Présentation du Burger Shot
+        </h2>
+
+        <p class="lead">
+
+          Le Burger Shot, c’est avant tout une équipe soudée
+          et une grande famille. Nous mettons tout en œuvre
+          pour offrir à nos clients un service de qualité,
+          dans une ambiance chaleureuse, conviviale et familiale.
+
+        </p>
+
+
+        <div class="presentation-grid">
+
+
+          <div class="info-card">
+
+            <h2>
+              Des produits frais
+            </h2>
+
+            <p>
+
+              Nous accordons une grande importance à la qualité
+              et à la fraîcheur de nos produits afin d’offrir
+              à chaque client une expérience gourmande,
+              savoureuse et conviviale.
+
+            </p>
+
+          </div>
+
+
+          <div class="info-card">
+
+            <h2>
+              Le cœur est là
+            </h2>
+
+            <p>
+
+              Derrière chaque commande se trouve une équipe
+              passionnée, soudée et accueillante, toujours prête
+              à donner le meilleur pour offrir à nos clients
+              un service chaleureux et de qualité.
+
+            </p>
+
+          </div>
+
+
+          <div class="info-card">
+
+            <h2>
+              Une équipe soudée
+            </h2>
+
+            <p>
+
+              Le respect, l’entraide et la communication sont
+              au cœur de notre équipe. Chacun a sa place et
+              contribue à faire du Burger Shot une véritable
+              famille, soudée et unie.
+
+            </p>
+
+          </div>
+
+
+          <div class="info-card">
+
+            <h2>
+              Une expérience unique
+            </h2>
+
+            <p>
+
+              Notre objectif est simple : offrir à chaque client
+              un moment agréable, convivial et de qualité,
+              avec un service rapide et une équipe toujours
+              à l’écoute.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="slogan">
+
+          <p>
+
+            « Le goût qui rassemble,
+            le sourire qui reste.
+            Au Burger Shot, chaque bouchée raconte une histoire. »
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RÈGLEMENT CIVIL
+    ===================================================== -->
+
+    <section
+      id="regles-civiles"
+      class="tab-content"
+    >
+
+      <div class="wrap">
+
+        <h2>
+          Règlement Interne Civil
+        </h2>
+
+        <p class="lead">
+
+          Le Burger Shot s’engage à offrir à chaque citoyen
+          un accueil chaleureux, un service de qualité et une
+          expérience conviviale. Notre établissement repose sur
+          le respect, l’entraide et le professionnalisme, afin
+          de faire du Burger Shot un véritable lieu de vie
+          et de partage au cœur de la ville.
+
+        </p>
+
+
+        <div class="rules">
+
+
+          <div class="rule">
+
+            <h3>
+              Respect envers les employés
+            </h3>
+
+            <p>
+
+              Chaque citoyen se doit de faire preuve de respect
+              et de courtoisie envers les employés du Burger Shot.
+              Les insultes, provocations, menaces ou tout comportement
+              déplacé ne seront pas tolérés au sein de l’établissement.
+
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <h3>
+              Respect des lieux
+            </h3>
+
+            <p>
+
+              Chaque citoyen se doit de respecter les locaux et
+              le matériel mis à sa disposition. Garder les lieux
+              propres et en bon état permet de préserver un environnement
+              agréable pour tous. Toute dégradation volontaire pourra
+              entraîner des sanctions.
+
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <h3>
+              Comportement
+            </h3>
+
+            <p>
+
+              Une attitude respectueuse, courtoise et conviviale
+              est demandée à toute personne présente au Burger Shot.
+              Notre établissement se veut être un lieu agréable
+              pour tous.
+
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <h3>
+              Respect des employés en service
+            </h3>
+
+            <p>
+
+              Afin de permettre à notre équipe de travailler
+              dans de bonnes conditions, il est demandé de ne pas
+              perturber le travail des employés ni de stationner
+              dans les zones réservées au personnel.
+
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <h3>
+              Commandes
+            </h3>
+
+            <p>
+
+              Les commandes doivent être effectuées dans le calme
+              et le respect, en suivant les indications données
+              par nos employés afin d’assurer un service fluide
+              et agréable pour tous.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RÈGLEMENT EMPLOYÉ
+    ===================================================== -->
+
+    <section
+      id="regles"
+      class="tab-content"
+    >
+
+      <div class="wrap">
+
+        <h2>
+          Règlement Employé
+        </h2>
+
+        <p class="lead">
+
+          Ces règles représentent les valeurs et les bases
+          du Burger Shot. Chaque employé se doit de les respecter
+          afin de préserver une équipe soudée, une bonne ambiance
+          et un service de qualité.
+
+          <br><br>
+
+          Le respect de ce règlement est obligatoire pour l’ensemble
+          des employés, quel que soit leur poste ou leur ancienneté.
+
+        </p>
+
+
+        <div class="rules">
+
+
+          <div class="rule">
+
+            <h3>
+              Respect envers autrui
+            </h3>
+
+            <p>
+
+              Chaque employé représente le Burger Shot et doit
+              faire preuve de respect, de courtoisie et de
+              bienveillance envers ses collègues, ses supérieurs
+              et les clients. Les insultes, moqueries, harcèlement
+              ou discriminations ne sont pas tolérés.
+
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <h3>
+              Ponctualité et présence
+            </h3>
+
+            <p>
+
+              Chaque employé s'engage à respecter ses horaires
+              et à prévenir sa hiérarchie en cas d'absence,
+              de retard ou d'empêchement.
+
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <h3>
+              Engagement de l'Employé
+            </h3>
+
+            <p>
+
+              En rejoignant le Burger Shot, chaque employé accepte
+              de respecter les valeurs et le présent règlement.
+              Tout manquement pourra faire l'objet d'une sanction
+              selon la situation.
+
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <h3>
+              Confidentialité
+            </h3>
+
+            <p>
+
+              Les informations concernant le fonctionnement interne
+              du Burger Shot, ses procédures ou les décisions de
+              la direction doivent rester confidentielles et ne
+              doivent pas être communiquées à des personnes extérieures.
+
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <h3>
+              Tenue professionnelle
+            </h3>
+
+            <p>
+
+              Chaque employé doit se présenter en service avec
+              une tenue propre, correcte et adaptée à son poste,
+              afin de préserver l'image et le sérieux du Burger Shot.
+
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <h3>
+              Service client
+            </h3>
+
+            <p>
+
+              Chaque client doit être accueilli avec sourire,
+              respect et professionnalisme. Notre accueil reflète
+              l'image du Burger Shot et l'esprit familial que
+              nous souhaitons transmettre.
+
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <h3>
+              Respect de la hiérarchie
+            </h3>
+
+            <p>
+
+              Les consignes données par la hiérarchie doivent être
+              respectées. En cas de désaccord ou de difficulté,
+              le dialogue et le respect restent toujours privilégiés.
+
+            </p>
+
+          </div>
+
+
+          <div class="rule">
+
+            <h3>
+              Utilisation du matériel
+            </h3>
+
+            <p>
+
+              Le matériel et les équipements du Burger Shot doivent
+              être utilisés avec soin et uniquement dans le cadre
+              professionnel. Chaque employé est responsable du
+              matériel qui lui est confié.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HIÉRARCHIE
+    ===================================================== -->
+
+    <section
+      id="hierarchie"
+      class="tab-content"
+    >
+
+      <div class="wrap">
+
+        <h2>
+          Hiérarchie de l'Entreprise
+        </h2>
+
+        <p class="lead">
+
+          La hiérarchie du Burger Shot repose sur trois pôles
+          complémentaires : la Direction, la Gestion et l’Équipe.
+          Chaque grade possède ses propres responsabilités et
+          contribue au bon fonctionnement de l’établissement.
+
+          <br><br>
+
+          Chaque membre, quel que soit son grade, joue un rôle
+          important dans la réussite et l’évolution du Burger Shot.
+
+        </p>
+
+
+        <div class="ranks">
+
+
+          <div class="rank direction">
+
+            <div class="grade">
+              Patron
+            </div>
+
+            <div>
+
+              <span>
+
+                Autorité principale du Burger Shot, il définit
+                les grandes orientations de l’établissement et
+                prend les décisions stratégiques. Il valide les
+                promotions aux postes de gestion et dispose du
+                dernier mot sur les décisions importantes.
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="rank direction">
+
+            <div class="grade">
+              Co-Patron
+            </div>
+
+            <div>
+
+              <span>
+
+                Seconde le Patron dans la gestion globale du
+                Burger Shot et participe aux décisions importantes
+                de l’établissement. En l’absence du Patron,
+                il assure la continuité de la direction et dispose
+                des mêmes pouvoirs décisionnels.
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="rank gestion">
+
+            <div class="grade">
+              Manager
+            </div>
+
+            <div>
+
+              <span>
+
+                Supervise les opérations quotidiennes du Burger Shot
+                et veille au bon fonctionnement de l’établissement.
+                Il encadre les équipes, participe à l’organisation
+                des plannings et veille à maintenir une bonne ambiance
+                et une équipe soudée.
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="rank gestion">
+
+            <div class="grade">
+              Chef d'équipe
+            </div>
+
+            <div>
+
+              <span>
+
+                Responsable de son équipe, il veille au bon déroulement
+                du service et accompagne les employés au quotidien.
+                Il participe à la formation des nouveaux arrivants
+                et assure le lien entre l’équipe et la direction.
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="rank">
+
+            <div class="grade">
+              Serveur
+            </div>
+
+            <div>
+
+              <span>
+
+                Employé expérimenté et exemplaire, il veille à offrir
+                un service chaleureux et de qualité. Il accompagne
+                les nouveaux employés et contribue au bon fonctionnement
+                de l’équipe au quotidien.
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="rank">
+
+            <div class="grade">
+              Cuisinier
+            </div>
+
+            <div>
+
+              <span>
+
+                Employé confirmé ayant terminé sa période d’essai.
+                Il participe au bon déroulement du service et peut
+                être amené à travailler en caisse, en salle ou en
+                cuisine selon les besoins de l’établissement.
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div class="rank">
+
+            <div class="grade">
+              Stagiaire
+            </div>
+
+            <div>
+
+              <span>
+
+                Nouvel arrivant en période d’essai, il découvre
+                le fonctionnement du Burger Shot et est accompagné
+                par un Senior ou un Manager durant son intégration.
+                Cette période permet de l’accompagner, de le former
+                et d’évaluer son évolution au sein de l’équipe.
+
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MENU
+    ===================================================== -->
+
+    <section
+      id="menu"
+      class="tab-content"
+    >
+
+      <div class="wrap">
+
+        <h2>
+          Notre Menu
+        </h2>
+
+        <p class="lead">
+
+          Découvrez les incontournables du Burger Shot et profitez
+          d’un menu gourmand, varié et accessible à tous, préparé
+          avec soin par notre équipe.
+
+        </p>
+
+
+        <div class="menu-grid">
+
+
+          <!-- BURGERS -->
+
+          <div class="menu-category">
+
+            <h3>
+               Burgers
+            </h3>
+
+            <div class="menu-item">
+
+              <strong>
+                Classic Burger
+              </strong>
+
+              <span class="price">
+                $15
+              </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+              <strong>
+                Double Burger
+              </strong>
+
+              <span class="price">
+                $20
+              </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+              <strong>
+                Cheese Burger
+              </strong>
+
+              <span class="price">
+                $18
+              </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+              <strong>
+                Big Burger
+              </strong>
+
+              <span class="price">
+                $25
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- ACCOMPAGNEMENTS -->
+
+          <div class="menu-category">
+
+            <h3>
+               Accompagnements
+            </h3>
+
+            <div class="menu-item">
+
+              <strong>
+                Petites Frites
+              </strong>
+
+              <span class="price">
+                $8
+              </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+              <strong>
+                Grandes Frites
+              </strong>
+
+              <span class="price">
+                $12
+              </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+              <strong>
+                Chicken Nuggets
+              </strong>
+
+              <span class="price">
+                $14
+              </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+              <strong>
+                Onion Rings
+              </strong>
+
+              <span class="price">
+                $10
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- BOISSONS -->
+
+          <div class="menu-category">
+
+            <h3>
+               Boissons
+            </h3>
+
+            <div class="menu-item">
+
+              <strong>
+                Cola
+              </strong>
+
+              <span class="price">
+                $6
+              </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+              <strong>
+                Cola Cherry
+              </strong>
+
+              <span class="price">
+                $6
+              </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+              <strong>
+                Limonade
+              </strong>
+
+              <span class="price">
+                $6
+              </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+              <strong>
+                Eau
+              </strong>
+
+              <span class="price">
+                $4
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- MENUS -->
+
+          <div class="menu-category">
+
+            <h3>
+               Menus
+            </h3>
+
+            <div class="menu-item">
+
+              <strong>
+                Menu Classic
+              </strong>
+
+              <span class="price">
+                $25
+              </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+              <strong>
+                Menu Double
+              </strong>
+
+              <span class="price">
+                $30
+              </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+              <strong>
+                Menu Cheese
+              </strong>
+
+              <span class="price">
+                $28
+              </span>
+
+            </div>
+
+
+            <div class="menu-item">
+
+              <strong>
+                Menu Big
+              </strong>
+
+              <span class="price">
+                $35
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER
+  ========================================================= -->
+
+  <footer>
+
+    <strong>
+      Créateur SRyuk
+    </strong>
+
+    <p>
+      © Burger Shot | Maybe FA | 2026
+    </p>
+
+  </footer>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================= -->
+
+  <script>
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
+
+        var navLinks =
+          document.querySelectorAll(
+            "nav a[data-tab]"
+          );
+
+        var tabPanes =
+          document.querySelectorAll(
+            ".tab-content"
+          );
+
+
+        function switchTab(targetId) {
+
+          tabPanes.forEach(
+            function (pane) {
+
+              pane.classList.remove(
+                "active"
+              );
+
+            }
+          );
+
+
+          navLinks.forEach(
+            function (link) {
+
+              link.classList.remove(
+                "active"
+              );
+
+            }
+          );
+
+
+          var selectedPane =
+            document.getElementById(
+              targetId
+            );
+
+
+          if (selectedPane) {
+
+            selectedPane.classList.add(
+              "active"
+            );
+
+          }
+
+
+          var activeLink =
+            document.querySelector(
+              'nav a[data-tab="' +
+              targetId +
+              '"]'
+            );
+
+
+          if (activeLink) {
+
+            activeLink.classList.add(
+              "active"
+            );
+
+          }
+
+
+          window.scrollTo({
+
+            top: 0,
+
+            behavior: "smooth"
+
+          });
+
+        }
+
+
+        navLinks.forEach(
+          function (link) {
+
+            link.addEventListener(
+              "click",
+              function (e) {
+
+                e.preventDefault();
+
+
+                var tabId =
+                  this.getAttribute(
+                    "data-tab"
+                  );
+
+
+                switchTab(
+                  tabId
+                );
+
+              }
+            );
+
+          }
+        );
+
+
+        switchTab(
+          "presentation"
+        );
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>
+```
